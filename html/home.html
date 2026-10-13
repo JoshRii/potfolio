@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Page</title>
+
+        <link rel="stylesheet" href="../css/home.css">
+    </head>
+
+    <body>
+        <!-- Header section with navigation bar -->
+        <header class="navbar">
+            <div class="nav-logo">
+                <a href="home.html">My<span>Logo</span></a>
+            </div>
+
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contacts.html">Contact</a></li>
+                </ul>
+            </nav>
+
+            <!-- Dark/light mode toggle -->
+            <div class="mode-toggle">
+                <input type="checkbox" id="mode-toggle-checkbox">
+                <label for="mode-toggle-checkbox" class="toggle-label">
+                    <span class="toggle-icon">🌙</span>
+                    <span class="toggle-icon">☀️</span>
+                </label>
+        </header>
+        <!--End Header-->
+
+
+        <!... Body content for the Home page goes here. 
+        You can add information about your services, or any other relevant content. -->
+        <body class="home-body">
+            <main class="hero-container">
+                <div class="hero-content">
+                    <p class="hero-sub">Welcome to my space</p>
+                    <h1 class="hero-title">
+                        Hi, I am <span id="animated-name">Creative Mind</span>
+                    </h1>
+                    <p class="hero-description">
+                        A passionate creator building beautiful, highly interactive, and modern digital experiences. Let's create
+                        something extraordinary together.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="projects.html" class="btn btn-primary">View My Work</a>
+                        <a href="contacts.html" class="btn btn-secondary">Get In Touch</a>
+                    </div>
+                </div>
+            </main>
+
+
+            <!-- Place this section directly under your <main class="hero-container"> and above your Featured Projects section -->
+            <section class="about-preview-section">
+                <div class="about-grid">
+            
+                    <!-- 1. Left Side: Creative Interactive Image Framework -->
+                    <div class="about-visual-side">
+                        <div class="image-experience-badge">
+                            <span class="badge-number">5+</span>
+                            <span class="badge-text">Years Of<br>Crafting Code</span>
+                        </div>
+                        <div class="image-accent-frame"></div>
+                        <div class="about-image-mask">
+                            <img src="https://picsum.photos" alt="My Portrait" loading="lazy">
+                        </div>
+                    </div>
+            
+                    <!-- 2. Right Side: Compelling Copy & Skills -->
+                    <div class="about-text-side">
+                        <span class="about-subtitle">// Beyond The Code</span>
+                        <h2>Designing interfaces that feel natural. Building systems that scale.</h2>
+            
+                        <p class="about-bio">
+                            I bridge the gap between complex engineering pipelines and pristine user interaction. I don't just write
+                            functional scripts; I design digital environments where performance marries aesthetic details
+                            beautifully.
+                        </p>
+            
+                        <!-- Interactive Skill Pillars -->
+                        <div class="skills-mini-grid">
+                            <div class="skill-pillar">
+                                <span class="pillar-icon">✨</span>
+                                <div>
+                                    <h4>Frontend Architecture</h4>
+                                    <p>Crafting rapid interactive visual layouts using clean, semantic systems.</p>
+                                </div>
+                            </div>
+                            <div class="skill-pillar">
+                                <span class="pillar-icon">⚡</span>
+                                <div>
+                                    <h4>Performance Strategy</h4>
+                                    <p>Optimizing content assets to load at lightning speeds on any device.</p>
+                                </div>
+                            </div>
+                        </div>
+            
+                        <!-- Stylish Forward Redirect Button -->
+                        <div class="about-action-row">
+                            <a href="about.html" class="magnetic-about-btn">
+                                <span>Discover My Story</span>
+                                <div class="btn-arrow-bubble">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                                        <polyline points="12 5 19 12 12 19"></polyline>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+            
+                    </div>
+            
+                </div>
+            </section>
+
+
+
+            <!-- Projects Section -->
+            <section class="projects-section">
+                <div class="section-header">
+                    <h2>Featured Projects</h2>
+                    <p>Swipe or scroll horizontally to explore my recent work</p>
+                </div>
+            
+                <!-- Horizontal Scroll Container -->
+                <div class="cards-wrapper">
+            
+                    <!-- Card 1 -->
+                    <div class="project-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos" alt="Project One" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>E-Commerce Platform</h3>
+                            <p>A modern online storefront built with performance and seamless checkout flows in mind.</p>
+                            <a href="projects.html#project1" class="card-btn">Explore Case →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Card 2 -->
+                    <div class="project-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos" alt="Project Two" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>AI Analytics Dashboard</h3>
+                            <p>Real-time visual metrics tracking engine using advanced forecasting data models.</p>
+                            <a href="projects.html#project2" class="card-btn">Explore Case →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Card 3 -->
+                    <div class="project-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos" alt="Project Three" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Social Media App</h3>
+                            <p>A minimalist social platform focusing on privacy-first interactions and messaging.</p>
+                            <a href="projects.html#project3" class="card-btn">Explore Case →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Card 4 -->
+                    <div class="project-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos" alt="Project Four" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Fitness Tracker Mobile</h3>
+                            <p>Cross-platform application built to monitor daily wellness habits and routines.</p>
+                            <a href="projects.html#project4" class="card-btn">Explore Case →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Card 5 -->
+                    <div class="project-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos" alt="Project Five" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Cybersecurity Sandbox</h3>
+                            <p>An interactive, educational training environment simulating local network exploits.</p>
+                            <a href="projects.html#project5" class="card-btn">Explore Case →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Card 6 -->
+                    <div class="project-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos" alt="Project Six" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Smart Home UI</h3>
+                            <p>A centralized desktop hub interface controlling IoT accessories via drag-and-drop.</p>
+                            <a href="projects.html#project6" class="card-btn">Explore Case →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Card 7 -->
+                    <div class="project-card">
+                        <div class="card-img-container">
+                            <img src="https://picsum.photos" alt="Project Seven" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Recipe Finder Engine</h3>
+                            <p>Ingredient-based search platform pulling customized dishes and nutrition values.</p>
+                            <a href="projects.html#project7" class="card-btn">Explore Case →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Final Circular Navigation Card -->
+                    <a href="projects.html" class="circle-redirect-card" aria-label="View all projects">
+                        <div class="circle-card-content">
+                            <span class="circle-icon">➔</span>
+                            <span class="circle-text">View All<br>Projects</span>
+                        </div>
+                    </a>
+            
+                </div>
+            </section>
+
+            <!-- ongoing projects -->
+            <section class="projects-section ongoing-section">
+                <div class="section-header">
+                    <h2>In the Lab (Ongoing)</h2>
+                    <p>A sneak peek at digital products currently being engineered and designed</p>
+                </div>
+            
+                <!-- Horizontal Scroll Container -->
+                <div class="cards-wrapper">
+            
+                    <!-- Ongoing Card 1 -->
+                    <div class="project-card ongoing-card">
+                        <div class="card-img-container">
+                            <div class="status-badge">
+                                <span class="pulse-dot"></span> W.I.P
+                            </div>
+                            <img src="https://picsum.photos" alt="Ongoing Project One" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Web3 Voting Gateway</h3>
+                            <p>Building a secure, decentralized identity validation interface for transparent ballot counts.</p>
+                            <a href="projects.html#ongoing1" class="card-btn">Track Progress →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Ongoing Card 2 -->
+                    <div class="project-card ongoing-card">
+                        <div class="card-img-container">
+                            <div class="status-badge">
+                                <span class="pulse-dot"></span> W.I.P
+                            </div>
+                            <img src="https://picsum.photos" alt="Ongoing Project Two" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>SaaS Design System</h3>
+                            <p>Drafting an enterprise-grade utility framework optimizing responsive UI tokens.</p>
+                            <a href="projects.html#ongoing2" class="card-btn">Track Progress →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Ongoing Card 3 -->
+                    <div class="project-card ongoing-card">
+                        <div class="card-img-container">
+                            <div class="status-badge">
+                                <span class="pulse-dot"></span> W.I.P
+                            </div>
+                            <img src="https://picsum.photos" alt="Ongoing Project Three" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>AR Navigation Overlay</h3>
+                            <p>Testing real-time viewport canvas rendering algorithms over geolocation paths.</p>
+                            <a href="projects.html#ongoing3" class="card-btn">Track Progress →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Ongoing Card 4 -->
+                    <div class="project-card ongoing-card">
+                        <div class="card-img-container">
+                            <div class="status-badge">
+                                <span class="pulse-dot"></span> W.I.P
+                            </div>
+                            <img src="https://picsum.photos" alt="Ongoing Project Four" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>AI Content Curator</h3>
+                            <p>Developing machine learning models to cluster and summarize cross-platform dev newsletters.</p>
+                            <a href="projects.html#ongoing4" class="card-btn">Track Progress →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Ongoing Card 5 -->
+                    <div class="project-card ongoing-card">
+                        <div class="card-img-container">
+                            <div class="status-badge">
+                                <span class="pulse-dot"></span> W.I.P
+                            </div>
+                            <img src="https://picsum.photos" alt="Ongoing Project Five" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Crypto Portfolio Ticker</h3>
+                            <p>Configuring ultra-low latency websocket arrays for accurate live pricing pipelines.</p>
+                            <a href="projects.html#ongoing5" class="card-btn">Track Progress →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Ongoing Card 6 -->
+                    <div class="project-card ongoing-card">
+                        <div class="card-img-container">
+                            <div class="status-badge">
+                                <span class="pulse-dot"></span> W.I.P
+                            </div>
+                            <img src="https://picsum.photos" alt="Ongoing Project Six" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Developer Portfolio V2</h3>
+                            <p>Iterating on advanced fluid layout architecture frameworks for ultra-fast load times.</p>
+                            <a href="projects.html#ongoing6" class="card-btn">Track Progress →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Ongoing Card 7 -->
+                    <div class="project-card ongoing-card">
+                        <div class="card-img-container">
+                            <div class="status-badge">
+                                <span class="pulse-dot"></span> W.I.P
+                            </div>
+                            <img src="https://picsum.photos" alt="Ongoing Project Seven" loading="lazy">
+                        </div>
+                        <div class="card-content">
+                            <h3>Task Automation Hub</h3>
+                            <p>Wiring simple custom script triggers to headless cron instances for remote server maintenance.</p>
+                            <a href="projects.html#ongoing7" class="card-btn">Track Progress →</a>
+                        </div>
+                    </div>
+            
+                    <!-- Final Circular Navigation Card -->
+                    <a href="projects.html" class="circle-redirect-card ongoing-circle-card" aria-label="View all projects">
+                        <div class="circle-card-content">
+                            <span class="circle-icon">🛠️</span>
+                            <span class="circle-text">All Active<br>Builds</span>
+                        </div>
+                    </a>
+            
+                </div>
+            </section>
+
+            <!-- Place this section directly under your Ongoing Projects section to finish your Home Page -->
+            <section class="cta-invitation-section">
+                <div class="cta-backdrop-glow"></div>
+            
+                <div class="cta-container">
+                    <span class="cta-subtitle">// Let's Build Together</span>
+            
+                    <h2>Have a revolutionary idea in mind?<br>Let's engineered it into reality.</h2>
+            
+                    <p class="cta-description">
+                        Whether you are looking to launch a robust digital product from scratch, build a high-performance
+                        interactive interface, or overhaul an existing architecture—I am currently accepting select engineering and
+                        design collaborations.
+                    </p>
+            
+                    <!-- The High-Engagement Contact Redirect Button -->
+                    <div class="cta-action-wrapper">
+                        <a href="contacts.html" class="interactive-glow-btn">
+                            <span class="btn-glow-text">Start Your Project</span>
+                            <div class="btn-glow-ripple">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                </svg>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </body>
+        <!--End of body for the Home page.-->
+    
+        <!-- Footer Section begins  -->
+        <footer class="global-footer">
+            <div class="footer-wave-accent"></div>
+        
+            <div class="footer-container">
+                <div class="footer-grid">
+        
+                    <!-- Column 1: Brand Pitch -->
+                    <div class="footer-col brand-col">
+                        <a href="home.html" class="footer-logo">My<span>Logo</span></a>
+                        <p class="brand-bio">
+                            Designing beautiful interactive experiences and building robust engineering architectures from the
+                            ground up.
+                        </p>
+                        <!-- Modern Mini Social Grid -->
+                        <div class="footer-socials">
+                            <a href="#" aria-label="GitHub" class="social-link">
+                                <span class="social-icon">💻</span>
+                            </a>
+                            <a href="#" aria-label="LinkedIn" class="social-link">
+                                <span class="social-icon">👔</span>
+                            </a>
+                            <a href="#" aria-label="Twitter" class="social-link">
+                                <span class="social-icon">🐦</span>
+                            </a>
+                        </div>
+                    </div>
+        
+                    <!-- Column 2: Navigation Map -->
+                    <div class="footer-col">
+                        <h3>Explore</h3>
+                        <ul class="footer-links">
+                            <li><a href="home.html">Home Space</a></li>
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="projects.html">Case Studies</a></li>
+                            <li><a href="contacts.html">Get In Touch</a></li>
+                        </ul>
+                    </div>
+        
+                    <!-- Column 3: Quick Utilities -->
+                    <div class="footer-col">
+                        <h3>Current Lab Status</h3>
+                        <div class="status-indicator-box">
+                            <span class="status-pulse-ring"></span>
+                            <p>Available for select freelance contracts & corporate engineering roles.</p>
+                        </div>
+                    </div>
+        
+                </div>
+        
+                <!-- The Absolute Bottom Baseline Section -->
+                <div class="footer-baseline">
+                    <p>&copy; 2024 My Jobs. All rights reserved.</p>
+                    <div class="baseline-links">
+                        <a href="#">Privacy Protocol</a>
+                        <span>•</span>
+                        <a href="#">Terms of Use</a>
+                    </div>
+                </div>
+        
+            </div>
+        </footer>
+
+        <!-- Footer Section ends -->
+
+    
+        <script src="../scripts/home.js"></script>
+    
+    </body>
+</html>

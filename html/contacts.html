@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initiate Project | Contact Space</title>
+
+    <!-- Global Shared Base File & Theme Variables -->
+    <link rel="stylesheet" href="../css/global.css">
+    <!-- Page Specific Style Rules -->
+    <link rel="stylesheet" href="../css/contacts.css">
+</head>
+
+<body>
+
+    <!-- ==========================================
+       SHARED GLOBAL NAVIGATION HEADER
+       ========================================== -->
+    <header class="navbar">
+        <div class="nav-logo">
+            <a href="home.html">My<span>Logo</span></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contacts.html" class="active">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="mode-toggle">
+            <input type="checkbox" id="mode-toggle-checkbox">
+            <label for="mode-toggle-checkbox" class="toggle-label">
+                <span class="toggle-icon">🌙</span>
+                <span class="toggle-icon">☀️</span>
+            </label>
+        </div>
+    </header>
+
+    <!-- ==========================================
+       CORE INTERACTIVE CONTACT INTERFACE PANEL
+       ========================================== -->
+    <main class="contact-hero-section">
+        <div class="contact-wrapper-container">
+
+            <!-- Welcome Header & Short Paragraph Before Form -->
+            <div class="contact-page-intro">
+                <span class="about-tag">// Initiation Portal</span>
+                <h1>Let’s Engineer Your Next Big Idea</h1>
+                <p>
+                    Have a visionary digital product, custom web application, or UI architecture in mind?
+                    Fill out the brief multi-step blueprint below, and your project parameters will be transmitted
+                    directly to my secure inbox for review.
+                </p>
+            </div>
+
+            <div class="contact-card-container">
+
+                <!-- Top Step-by-Step Progress Tracking Track -->
+                <div class="form-progress-bar" id="form-progress">
+                    <div class="progress-step active-step" data-step="1"><span>01</span> About You</div>
+                    <div class="progress-step" data-step="2"><span>02</span> Project Scope</div>
+                    <div class="progress-step" data-step="3"><span>03</span> The Blueprint</div>
+                </div>
+
+                <!-- Main Form Sheet Structure 
+                     NOTE: Replace action URL with your free Formspree endpoint (e.g., https://formspree.io/f/your_id) 
+                     to receive submissions directly in your email. -->
+                <form id="project-wizard-form" action="https://formspree.io/f/mwlvngjy" method="POST"
+                    autocomplete="off" novalidate>
+
+                    <!-- STEP 1: PERSONAL INFORMATION PROFILE -->
+                    <div class="form-step-panel active-panel" data-panel="1">
+                        <div class="panel-header">
+                            <h2>Let's introduce ourselves</h2>
+                            <p>Provide your contact details so we can establish a direct communication channel.</p>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="client-name" name="name" required placeholder=" ">
+                            <label for="client-name">Your Full Name</label>
+                            <span class="error-msg">Please enter your name to proceed</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="client-email" name="email" required placeholder=" ">
+                            <label for="client-email">Email Address</label>
+                            <span class="error-msg">Please input a valid, working email address</span>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" id="client-phone" name="phone" required placeholder=" ">
+                            <label for="client-phone">Phone Number (with Country Code)</label>
+                            <span class="error-msg">Please enter a valid phone number</span>
+                        </div>
+                        <div class="panel-action-row">
+                            <button type="button" class="form-control-btn next-step-btn">Continue Journey →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 2: THE PROJECT NAMING FIELD -->
+                    <div class="form-step-panel" data-panel="2">
+                        <div class="panel-header">
+                            <h2>What are we engineering?</h2>
+                            <p>Give your architectural concept or business goal a working title.</p>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" id="project-title" name="project_title" required placeholder=" ">
+                            <label for="project-title">Project Name / Working Title</label>
+                            <span class="error-msg">A project name helps organize the pipeline files</span>
+                        </div>
+                        <div class="panel-action-row">
+                            <button type="button" class="form-control-btn prev-step-btn">← Back</button>
+                            <button type="button" class="form-control-btn next-step-btn">Next Phase →</button>
+                        </div>
+                    </div>
+
+                    <!-- STEP 3: LOGISTICS DESCRIPTION & FINAL INITIATE BUTTON -->
+                    <div class="form-step-panel" data-panel="3">
+                        <div class="panel-header">
+                            <h2>The Project Blueprint</h2>
+                            <p>Tell me about your core features, reference links, or timeline expectations.</p>
+                        </div>
+                        <div class="input-group text-area-group">
+                            <textarea id="project-desc" name="project_description" required placeholder=" "
+                                rows="5"></textarea>
+                            <label for="project-desc">Project Details & Summary</label>
+                            <span class="error-msg">Please share a few brief details about your idea</span>
+                        </div>
+                        <div class="panel-action-row">
+                            <button type="button" class="form-control-btn prev-step-btn">← Back</button>
+                            <button type="submit" class="form-control-btn submit-form-btn">Launch Initialization
+                                ✨</button>
+                        </div>
+                    </div>
+
+                </form>
+
+                <!-- ==========================================
+               IMMERSIVE MIND-BLOWING SUCCESS CARD SCREEN
+               ========================================== -->
+                <div class="success-screen-matrix" id="success-message">
+                    <div class="success-icon-halo">
+                        <div class="success-pulse-radar"></div>
+                        <span class="success-check">🚀</span>
+                    </div>
+                    <h2>Initialization Successful!</h2>
+                    <p class="success-lead">
+                        Transmission sent successfully, <strong id="summary-client-name">Explorer</strong>. Your
+                        blueprint details for <span id="summary-project-title">"The Enterprise Project"</span> have been
+                        dispatched directly to my email inbox.
+                    </p>
+                    <p class="success-sub">
+                        I am reviewing your parameters. Expect a comprehensive analysis draft in your inbox within
+                        <strong>24 business hours</strong>.
+                    </p>
+                    <div class="success-action-row">
+                        <a href="home.html" class="form-control-btn home-return-btn">Return to Headquarters</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- ==========================================
+       SHARED GLOBAL FOOTER
+       ========================================== -->
+    <footer class="global-footer">
+        <div class="footer-wave-accent"></div>
+        <div class="footer-container">
+            <div class="footer-baseline">
+                <p>&copy; 2026 My Jobs. All rights reserved.</p>
+                <div class="baseline-links">
+                    <a href="#">Privacy Protocol</a>
+                    <span>•</span>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../scripts/contacts.js" defer></script>
+
+</body>
+
+</html>

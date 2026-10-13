@@ -1,0 +1,787 @@
+/* --- DARK & LIGHT THEME VARIABLES --- */
+:root {
+    --bg-primary: #ffffff;
+    --bg-nav: rgba(255, 255, 255, 0.75);
+    --text-main: #1a1a1a;
+    --accent: #5e60ce;
+    --toggle-bg: #e4e6eb;
+    --nav-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    --border-glass: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f1016;
+    --bg-nav: rgba(15, 16, 22, 0.75);
+    --text-main: #f5f5f7;
+    --accent: #72efdd;
+    --toggle-bg: #2f3136;
+    --nav-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    --border-glass: rgba(255, 255, 255, 0.05);
+}
+
+/* --- BASE STYLES --- */
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* --- THE NAVBAR (HEADER) --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space in the center */
+    padding: 1rem 4rem;
+    background: var(--bg-nav);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glass);
+    box-shadow: var(--nav-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+/* --- LOGO (FAR LEFT) --- */
+.nav-logo a {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+.nav-logo span {
+    color: var(--accent);
+}
+
+/* --- NAV WRAPPER ALIGNMENT --- */
+.navbar nav {
+    display: flex;
+    margin-left: auto;
+    /* Pushes list rightwards */
+    margin-right: 3rem;
+    /* Breathing room before the checkbox switch */
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- VISUAL ORDERING MATRIX --- */
+.mode-toggle {
+    order: 3;
+}
+
+/* Ultimate right edge */
+.navbar nav {
+    order: 2;
+}
+
+/* Follows next */
+.nav-logo {
+    order: 1;
+}
+
+/* Remains left */
+
+/* Reverse sorting links layout order: Switch -> Home -> About -> Projects -> Contact */
+.link-home {
+    order: 4;
+}
+
+.link-about {
+    order: 3;
+}
+
+.link-projects {
+    order: 2;
+}
+
+.link-contact {
+    order: 1;
+}
+
+/* --- NAVIGATION LINKS STYLING --- */
+.navbar ul a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.4rem 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul a:hover {
+    color: var(--accent);
+}
+
+.navbar ul a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar ul a:hover::after {
+    width: 100%;
+}
+
+/* --- CREATIVE SLIDING CHECKBOX SWITCH --- */
+/* Hide the ugly standard box markup */
+#mode-toggle-checkbox {
+    display: none;
+}
+
+/* The structural pill container background */
+.toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--toggle-bg);
+    width: 60px;
+    height: 32px;
+    border-radius: 50px;
+    padding: 0 5px;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.4s ease;
+}
+
+/* Icons styling inside switch layout */
+.toggle-icon {
+    font-size: 0.95rem;
+    z-index: 1;
+    user-select: none;
+}
+
+/* The dynamic moving toggle knob wheel */
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 26px;
+    height: 26px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Slides the internal white knob forward when checked */
+#mode-toggle-checkbox:checked+.toggle-label::after {
+    transform: translateX(28px);
+}
+
+
+/* --- PREMIUM GLOBAL FOOTER STYLES --- */
+.global-footer {
+    background: var(--bg-nav);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-glass);
+    padding: 6rem 4rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+/* Accent lighting divider stripe at the top edge of the footer */
+.footer-wave-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+    opacity: 0.6;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.51fr 1fr 1fr;
+    /* Extra allocation for brand identity */
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.footer-col h3 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    color: var(--text-main);
+    position: relative;
+    display: inline-block;
+}
+
+/* --- BRAND COLUMN --- */
+.brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.brand-bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.7;
+    max-width: 320px;
+    margin: 0;
+}
+
+/* --- SOCIAL BUTTON PILLS --- */
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--toggle-bg);
+    border: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--text-main);
+    border-color: var(--text-main);
+    transform: translateY(-4px);
+}
+
+.social-link:hover .social-icon {
+    transform: scale(1.15);
+}
+
+/* --- LINKS COLUMN --- */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    opacity: 0.75;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+    opacity: 1;
+    transform: translateX(4px);
+    /* Interactive visual push on list item hover */
+}
+
+/* --- LIVE LABORATORY STATUS BADGE --- */
+.status-indicator-box {
+    background: var(--toggle-bg);
+    border: 1px solid var(--border-glass);
+    padding: 1.2rem;
+    border-radius: 16px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.status-indicator-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.75;
+}
+
+.status-pulse-ring {
+    width: 8px;
+    height: 8px;
+    background-color: #34c759;
+    /* Energetic availability marker green */
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+    position: relative;
+}
+
+.status-pulse-ring::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #34c759;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    animation: availabilityGlow 2s infinite ease-in-out;
+}
+
+@keyframes availabilityGlow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3.5);
+        opacity: 0;
+    }
+}
+
+/* --- FOOTER BASELINE COPYRIGHT --- */
+.footer-baseline {
+    border-top: 1px solid var(--border-glass);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.footer-baseline p {
+    margin: 0;
+}
+
+.baseline-links {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.baseline-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.baseline-links a:hover {
+    color: var(--accent);
+}
+
+/* --- RESPONSIVE STRUCTURING --- */
+@media (max-width: 768px) {
+    .global-footer {
+        padding: 4rem 2rem 2rem 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .footer-baseline {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+
+/* --- PROJECTS PAGE SPECIFIC STYLES --- */
+
+/* Projects Hero Section */
+.projects-hero {
+    padding: 6rem 4rem 2rem 4rem;
+    text-align: center;
+}
+
+.projects-hero .section-center-head {
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+}
+
+.projects-hero h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    margin: 0 0 1rem 0;
+}
+
+.projects-hero p {
+    font-size: 1.15srem;
+    opacity: 0.75;
+    margin: 0;
+}
+
+/* Category Filter Buttons Bar */
+.project-filters {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.filter-btn {
+    background: var(--toggle-bg);
+    border: 1px solid var(--border-glass);
+    color: var(--text-main);
+    padding: 0.6rem 1.4rem;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background-color: var(--text-main);
+    color: var(--bg-primary);
+    border-color: var(--text-main);
+    transform: translateY(-2px);
+}
+
+/* Projects Grid Matrix Layout */
+.projects-grid-section {
+    padding: 2rem 4rem 8rem 4rem;
+}
+
+.projects-grid-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+}
+
+/* Individual Project Item Card */
+.project-item-card {
+    background: var(--bg-nav);
+    border: 1px solid var(--border-glass);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--nav-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s ease;
+}
+
+.project-item-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.project-item-card .card-img-container {
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background-color: var(--toggle-bg);
+}
+
+.project-item-card .card-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.project-item-card:hover .card-img-container img {
+    transform: scale(1.05);
+}
+
+.project-item-card .card-content {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.project-tag {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+}
+
+.project-item-card h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.project-item-card p {
+    margin: 0 0 1.5rem 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.8;
+    flex-grow: 1;
+}
+
+/* Tech Stack Pills inside card */
+.project-tech-stack {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+}
+
+.project-tech-stack span {
+    background: var(--toggle-bg);
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.project-item-card .card-btn {
+    align-self: flex-start;
+    text-decoration: none;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+}
+
+.project-item-card .card-btn:hover {
+    transform: translateX(5px);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+    .projects-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+
+    .projects-hero,
+    .projects-grid-section {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    .projects-hero h1 {
+        font-size: 2.2rem;
+    }
+
+    .projects-grid-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ==========================================================================
+   ENHANCED PROJECT DETAILS MODAL STYLES (Larger, Image-Rich, Scrollable)
+   ========================================================================== */
+.project-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 16, 22, 0.7);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+    padding: 2rem;
+}
+
+.project-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.project-modal-card {
+    max-width: 850px;
+    width: 100%;
+    max-height: 90vh;
+    background: var(--bg-nav);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid var(--border-glass);
+    border-radius: 36px;
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    transform: scale(0.95) translateY(20px);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-modal-overlay.active .project-modal-card {
+    transform: scale(1) translateY(0);
+}
+
+/* Floating Close Button */
+.project-modal-card .modal-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    background: rgba(15, 16, 22, 0.75);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: #ffffff;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    backdrop-filter: blur(6px);
+    transition: all 0.3s ease;
+}
+
+.project-modal-card .modal-close-btn:hover {
+    background-color: var(--accent);
+    color: #101115;
+    transform: scale(1.1);
+}
+
+/* Modal Image Banner Container */
+.modal-img-container {
+    width: 100%;
+    height: 300px;
+    flex-shrink: 0;
+    overflow: hidden;
+    background-color: var(--toggle-bg);
+    position: relative;
+}
+
+.modal-img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Scrollable Inner Content Container */
+.modal-content-scrollable {
+    padding: 3rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--accent) transparent;
+}
+
+.modal-header h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0.5rem 0 0 0;
+}
+
+.detail-block h3 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-block p {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    margin: 0;
+}
+
+.project-modal-card .modal-action-row {
+    margin-top: 1rem;
+    display: flex;
+}
+
+.project-modal-card .form-control-btn {
+    width: 100%;
+    padding: 1.2rem 2rem;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.05rem;
+    cursor: pointer;
+    border: none;
+    background-color: var(--text-main);
+    color: var(--bg-primary);
+    transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.project-modal-card .form-control-btn:hover {
+    background-color: var(--accent);
+    color: #101115;
+    transform: translateY(-2px);
+}
+
+/* Responsive adjustments for mobile devices */
+@media (max-width: 768px) {
+    .project-modal-overlay {
+        padding: 1rem;
+    }
+
+    .modal-img-container {
+        height: 200px;
+    }
+
+    .modal-content-scrollable {
+        padding: 2rem 1.5rem;
+    }
+
+    .modal-header h2 {
+        font-size: 1.8rem;
+    }
+}

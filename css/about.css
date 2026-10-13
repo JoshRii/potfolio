@@ -1,0 +1,881 @@
+/* --- DARK & LIGHT THEME VARIABLES --- */
+:root {
+    --bg-primary: #ffffff;
+    --bg-nav: rgba(255, 255, 255, 0.75);
+    --text-main: #1a1a1a;
+    --accent: #5e60ce;
+    --toggle-bg: #e4e6eb;
+    --nav-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+    --border-glass: rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+    --bg-primary: #0f1016;
+    --bg-nav: rgba(15, 16, 22, 0.75);
+    --text-main: #f5f5f7;
+    --accent: #72efdd;
+    --toggle-bg: #2f3136;
+    --nav-shadow: 0 4px 30px rgba(0, 0, 0, 0.4);
+    --border-glass: rgba(255, 255, 255, 0.05);
+}
+
+/* --- BASE STYLES --- */
+body {
+    margin: 0;
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    transition: background-color 0.4s ease, color 0.4s ease;
+}
+
+/* --- THE NAVBAR (HEADER) --- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Space in the center */
+    padding: 1rem 4rem;
+    background: var(--bg-nav);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-glass);
+    box-shadow: var(--nav-shadow);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+/* --- LOGO (FAR LEFT) --- */
+.nav-logo a {
+    font-size: 1.6rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+.nav-logo span {
+    color: var(--accent);
+}
+
+/* --- NAV WRAPPER ALIGNMENT --- */
+.navbar nav {
+    display: flex;
+    margin-left: auto;
+    /* Pushes list rightwards */
+    margin-right: 3rem;
+    /* Breathing room before the checkbox switch */
+}
+
+.navbar ul {
+    display: flex;
+    align-items: center;
+    gap: 2.2rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- VISUAL ORDERING MATRIX --- */
+.mode-toggle {
+    order: 3;
+}
+
+/* Ultimate right edge */
+.navbar nav {
+    order: 2;
+}
+
+/* Follows next */
+.nav-logo {
+    order: 1;
+}
+
+/* Remains left */
+
+/* Reverse sorting links layout order: Switch -> Home -> About -> Projects -> Contact */
+.link-home {
+    order: 4;
+}
+
+.link-about {
+    order: 3;
+}
+
+.link-projects {
+    order: 2;
+}
+
+.link-contact {
+    order: 1;
+}
+
+/* --- NAVIGATION LINKS STYLING --- */
+.navbar ul a {
+    text-decoration: none;
+    color: var(--text-main);
+    font-weight: 500;
+    font-size: 1rem;
+    position: relative;
+    padding: 0.4rem 0;
+    transition: color 0.3s ease;
+}
+
+.navbar ul a:hover {
+    color: var(--accent);
+}
+
+.navbar ul a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--accent);
+    transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.navbar ul a:hover::after {
+    width: 100%;
+}
+
+/* --- CREATIVE SLIDING CHECKBOX SWITCH --- */
+/* Hide the ugly standard box markup */
+#mode-toggle-checkbox {
+    display: none;
+}
+
+/* The structural pill container background */
+.toggle-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--toggle-bg);
+    width: 60px;
+    height: 32px;
+    border-radius: 50px;
+    padding: 0 5px;
+    position: relative;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: background-color 0.4s ease;
+}
+
+/* Icons styling inside switch layout */
+.toggle-icon {
+    font-size: 0.95rem;
+    z-index: 1;
+    user-select: none;
+}
+
+/* The dynamic moving toggle knob wheel */
+.toggle-label::after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 26px;
+    height: 26px;
+    background-color: #ffffff;
+    border-radius: 50px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Slides the internal white knob forward when checked */
+#mode-toggle-checkbox:checked+.toggle-label::after {
+    transform: translateX(28px);
+}
+
+
+/* --- PREMIUM GLOBAL FOOTER STYLES --- */
+.global-footer {
+    background: var(--bg-nav);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-top: 1px solid var(--border-glass);
+    padding: 6rem 4rem 2rem 4rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease, border-color 0.4s ease;
+}
+
+/* Accent lighting divider stripe at the top edge of the footer */
+.footer-wave-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, transparent 0%, var(--accent) 50%, transparent 100%);
+    opacity: 0.6;
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.51fr 1fr 1fr;
+    /* Extra allocation for brand identity */
+    gap: 4rem;
+    margin-bottom: 5rem;
+}
+
+.footer-col h3 {
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin: 0 0 1.5rem 0;
+    color: var(--text-main);
+    position: relative;
+    display: inline-block;
+}
+
+/* --- BRAND COLUMN --- */
+.brand-col {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-decoration: none;
+    color: var(--text-main);
+    letter-spacing: -1px;
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.brand-bio {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    opacity: 0.7;
+    max-width: 320px;
+    margin: 0;
+}
+
+/* --- SOCIAL BUTTON PILLS --- */
+.footer-socials {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: var(--toggle-bg);
+    border: 1px solid var(--border-glass);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-icon {
+    font-size: 1.1rem;
+    transition: transform 0.3s ease;
+}
+
+.social-link:hover {
+    background-color: var(--text-main);
+    border-color: var(--text-main);
+    transform: translateY(-4px);
+}
+
+.social-link:hover .social-icon {
+    transform: scale(1.15);
+}
+
+/* --- LINKS COLUMN --- */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-main);
+    opacity: 0.75;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+    opacity: 1;
+    transform: translateX(4px);
+    /* Interactive visual push on list item hover */
+}
+
+/* --- LIVE LABORATORY STATUS BADGE --- */
+.status-indicator-box {
+    background: var(--toggle-bg);
+    border: 1px solid var(--border-glass);
+    padding: 1.2rem;
+    border-radius: 16px;
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+}
+
+.status-indicator-box p {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    opacity: 0.75;
+}
+
+.status-pulse-ring {
+    width: 8px;
+    height: 8px;
+    background-color: #34c759;
+    /* Energetic availability marker green */
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+    position: relative;
+}
+
+.status-pulse-ring::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #34c759;
+    border-radius: 50%;
+    top: 0;
+    left: 0;
+    animation: availabilityGlow 2s infinite ease-in-out;
+}
+
+@keyframes availabilityGlow {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(3.5);
+        opacity: 0;
+    }
+}
+
+/* --- FOOTER BASELINE COPYRIGHT --- */
+.footer-baseline {
+    border-top: 1px solid var(--border-glass);
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.85rem;
+    opacity: 0.6;
+}
+
+.footer-baseline p {
+    margin: 0;
+}
+
+.baseline-links {
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+}
+
+.baseline-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.baseline-links a:hover {
+    color: var(--accent);
+}
+
+/* --- RESPONSIVE STRUCTURING --- */
+@media (max-width: 768px) {
+    .global-footer {
+        padding: 4rem 2rem 2rem 2rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        margin-bottom: 3.5rem;
+    }
+
+    .footer-baseline {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+}
+
+
+/* ==========================================================================
+   1. SECTION 1: THE HERO HANDSHAKE LAYOUT
+   ========================================================================== */
+.about-hero {
+    padding: 6rem 4rem;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.hero-grid-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
+    /* Split layout: Left Visual, Right Text */
+    gap: 6rem;
+    align-items: center;
+}
+
+/* --- LEFT COLUMN: PORTRAIT FRAME & METRICS DECK --- */
+.hero-visual-block {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-frame-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 3px solid var(--accent);
+    border-radius: 30px;
+    top: 20px;
+    left: -20px;
+    z-index: 1;
+    transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hero-image-window {
+    width: 100%;
+    height: 500px;
+    border-radius: 28px;
+    overflow: hidden;
+    box-shadow: var(--nav-shadow);
+    z-index: 2;
+    position: relative;
+    background-color: var(--toggle-bg);
+}
+
+.hero-image-window img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* Floating Statistics Counter Board Dashboard */
+.stats-counter-board {
+    position: absolute;
+    bottom: -2rem;
+    right: -1rem;
+    background: var(--bg-nav);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid var(--border-glass);
+    padding: 1.5rem 2rem;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    box-shadow: var(--nav-shadow);
+    z-index: 10;
+}
+
+.stat-node {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.stat-number {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 0.25rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    opacity: 0.7;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 35px;
+    background-color: var(--border-glass);
+}
+
+/* Hover effects synchronizing image panel elements */
+.hero-visual-block:hover .hero-image-window img {
+    transform: scale(1.03);
+}
+
+.hero-visual-block:hover .hero-frame-decoration {
+    transform: translate(-8px, 8px);
+}
+
+/* --- RIGHT COLUMN: TYPOGRAPHY & PITCH --- */
+.hero-text-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-tag {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.hero-text-block h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+    margin: 0 0 1.5rem 0;
+}
+
+.about-pitch-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    font-weight: 500;
+    margin: 0 0 1.5rem 0;
+}
+
+.about-pitch-sub {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    opacity: 0.75;
+    margin: 0;
+}
+
+/* ==========================================================================
+   2. SECTION 2: THE GLOWING SCROLL TIMELINE
+   ========================================================================== */
+.timeline-section {
+    padding: 8rem 4rem;
+    position: relative;
+}
+
+.section-center-head {
+    text-align: center;
+    margin-bottom: 5rem;
+}
+
+.section-center-head h2 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin: 0 0 0.5rem 0;
+}
+
+.section-center-head p {
+    font-size: 1.05rem;
+    opacity: 0.7;
+    margin: 0;
+}
+
+/* Timeline Wrapper Array */
+.timeline-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    position: relative;
+    padding: 2rem 0;
+}
+
+/* Central vertical alignment track laser spine */
+.timeline-spine {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: var(--toggle-bg);
+    transform: translateX(-50%);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Dynamic active color filler handled via JS scroll trigger */
+.timeline-glow-filler {
+    width: 100%;
+    height: 0%;
+    /* Grows from 0% to 100% */
+    background: linear-gradient(to bottom, var(--text-main), var(--accent));
+    transition: height 0.1s linear;
+}
+
+/* Standard Milestone Container Row Block */
+.timeline-milestone {
+    width: 50%;
+    position: relative;
+    margin-bottom: 4rem;
+    display: flex;
+}
+
+.timeline-milestone:last-child {
+    margin-bottom: 0;
+}
+
+/* Center dot node markers intersected directly on spine line */
+.milestone-marker {
+    position: absolute;
+    top: 2rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    border: 4px solid var(--toggle-bg);
+    z-index: 5;
+    transition: border-color 0.4s ease, background-color 0.4s ease;
+}
+
+/* Floating content presentation blocks */
+.milestone-box {
+    background: var(--bg-nav);
+    border: 1px solid var(--border-glass);
+    padding: 2rem;
+    border-radius: 20px;
+    box-shadow: var(--nav-shadow);
+    width: 85%;
+    transition: transform 0.4s ease, opacity 0.4s ease, border-color 0.4s ease;
+    opacity: 0.5;
+    /* Starts dim; JavaScript lights it up */
+    transform: translateY(20px);
+}
+
+.milestone-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.milestone-box h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.milestone-box p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.8;
+}
+
+/* Left/Right Flex Matrix Structural Alignment Overrides */
+.content-left {
+    left: 0;
+    justify-content: flex-start;
+}
+
+.content-left .milestone-marker {
+    right: -8px;
+}
+
+.content-right {
+    left: 50%;
+    justify-content: flex-end;
+}
+
+.content-right .milestone-marker {
+    left: -8px;
+}
+
+/* Dynamic Active State injected via JavaScript Observer */
+.timeline-milestone.active .milestone-box {
+    opacity: 1;
+    transform: translateY(0);
+    border-color: var(--accent);
+}
+
+.timeline-milestone.active .milestone-marker {
+    background-color: var(--accent);
+    border-color: var(--text-main);
+    box-shadow: 0 0 10px var(--accent);
+}
+
+/* ==========================================================================
+   3. SECTION 3: 3D TILT TECH STACK MATRIX
+   ========================================================================== */
+.matrix-skills-section {
+    padding: 8rem 4rem 12rem 4rem;
+    background-color: var(--bg-primary);
+}
+
+.tilt-matrix-grid {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+    perspective: 1000px;
+    /* Crucial: Dictates 3D workspace distortion strength */
+}
+
+.tilt-skill-card {
+    position: relative;
+    height: 280px;
+    border-radius: 24px;
+    background: var(--bg-nav);
+    border: 1px solid var(--border-glass);
+    box-shadow: var(--nav-shadow);
+    transform-style: preserve-3d;
+    /* Tells child structures to float in depth space */
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Internal insulation content buffer */
+.tilt-card-inner {
+    padding: 3rem 2rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateZ(50px);
+    /* Pushes typography forward from card baseline */
+    transition: transform 0.3s ease;
+}
+
+.skill-symbol {
+    font-size: 2.2rem;
+    margin-bottom: 1.5rem;
+    background: var(--toggle-bg);
+    padding: 0.5rem;
+    border-radius: 14px;
+    line-height: 1;
+}
+
+.tilt-card-inner h3 {
+    margin: 0 0 0.75rem 0;
+    font-size: 1.35rem;
+    font-weight: 700;
+}
+
+.tilt-card-inner p {
+    margin: 0;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    opacity: 0.75;
+}
+
+/* Sleek reflex dynamic glass overlay channel map */
+.tilt-card-glare {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at transparent, rgba(255, 255, 255, 0.15) 0%, transparent 80%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 5;
+}
+
+.tilt-skill-card:hover {
+    border-color: var(--accent);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+.tilt-skill-card:hover .tilt-card-glare {
+    opacity: 1;
+}
+
+/* ==========================================================================
+   4. RESPONSIVE DEVICE OPTIMIZATIONS
+   ========================================================================== */
+@media (max-width: 992px) {
+    .hero-grid-container {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .hero-image-window {
+        height: 400px;
+    }
+
+    .tilt-matrix-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .about-hero,
+    .timeline-section,
+    .matrix-skills-section {
+        padding: 4rem 2rem;
+    }
+
+    .hero-text-block h1 {
+        font-size: 2.2rem;
+    }
+
+    /* Force vertical execution layout behavior over spine lines on phones */
+    .timeline-spine {
+        left: 10px;
+    }
+
+    .timeline-milestone {
+        width: 100%;
+        left: 0 !important;
+        justify-content: flex-end;
+    }
+
+    .milestone-marker {
+        left: 2px !important;
+    }
+
+    .milestone-box {
+        width: calc(100% - 30px);
+    }
+
+    .stats-counter-board {
+        padding: 1rem;
+        gap: 1rem;
+        bottom: -1.5rem;
+    }
+
+    .stat-number {
+        font-size: 1.4rem;
+    }
+}

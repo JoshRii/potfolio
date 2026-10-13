@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects Page</title>
+
+    <link rel="stylesheet" href="../css/projects.css">
+</head>
+
+    <body>
+    
+        <!-- ==========================================================================
+             NAVIGATION HEADER
+             ========================================================================== -->
+        <header class="navbar">
+            <div class="nav-logo">
+                <a href="home.html">My<span>Logo</span></a>
+            </div>
+    
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="contacts.html">Contact</a></li>
+                </ul>
+            </nav>
+    
+            <div class="mode-toggle">
+                <input type="checkbox" id="mode-toggle-checkbox">
+                <label for="mode-toggle-checkbox" class="toggle-label">
+                    <span class="toggle-icon">🌙</span>
+                    <span class="toggle-icon">☀️</span>
+                </label>
+            </div>
+        </header>
+    
+    
+        <!-- ==========================================================================
+             SECTION 1: PROJECTS HERO & CATEGORY FILTER BAR
+             ========================================================================== -->
+        <section class="projects-hero">
+            <div class="section-center-head">
+                <span class="about-tag">// Case Studies & Lab Builds</span>
+                <h1>Explore All Engineering Works</h1>
+                <p>A comprehensive archive of deployed applications, live case studies, and active work-in-progress lab
+                    builds.</p>
+            </div>
+    
+            <!-- Filter category buttons -->
+            <div class="project-filters">
+                <button class="filter-btn active" data-filter="all">All Works</button>
+                <button class="filter-btn" data-filter="web">Web Apps</button>
+                <button class="filter-btn" data-filter="ui">UI/UX Design</button>
+                <button class="filter-btn" data-filter="security">Security & Systems</button>
+                <button class="filter-btn" data-filter="ongoing">Active Lab (W.I.P)</button>
+            </div>
+        </section>
+    
+    
+        <!-- ==========================================================================
+             SECTION 2: FULL MIXED PROJECTS GRID MATRIX (20 Total)
+             ========================================================================== -->
+        <section class="projects-grid-section">
+            <div class="projects-grid-container">
+    
+                <!-- 1. Completed Web -->
+                <div class="project-item-card" data-category="web">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1557821552-1710517667fc?auto=format&fit=crop&w=600&q=80"
+                            alt="E-Commerce Platform" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Full-Stack Web</span>
+                        <h3>E-Commerce Platform</h3>
+                        <p>A modern online storefront built with high performance and seamless checkout flows.</p>
+                        <div class="project-tech-stack">
+                            <span>JavaScript</span><span>CSS Grid</span><span>Node.js</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 2. Ongoing Web (W.I.P) -->
+                <div class="project-item-card ongoing-card" data-category="ongoing">
+                    <div class="card-img-container">
+                        <div class="status-badge"><span class="pulse-dot"></span> W.I.P</div>
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+                            alt="Web3 Voting Gateway" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Web3 & Decentralized</span>
+                        <h3>Web3 Voting Gateway</h3>
+                        <p>Building a secure, decentralized identity validation interface for transparent ballot counts.</p>
+                        <div class="project-tech-stack">
+                            <span>Solidity</span><span>React</span><span>Web3.js</span>
+                        </div>
+                        <a href="#" class="card-btn">Track Progress →</a>
+                    </div>
+                </div>
+    
+                <!-- 3. Completed UI/UX -->
+                <div class="project-item-card" data-category="ui">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80"
+                            alt="AI Analytics Dashboard" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">UI/UX Architecture</span>
+                        <h3>AI Analytics Dashboard</h3>
+                        <p>Real-time visual metrics tracking engine using advanced forecasting data models.</p>
+                        <div class="project-tech-stack">
+                            <span>Glassmorphism</span><span>Chart.js</span><span>Tailwind</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 4. Ongoing UI/UX (W.I.P) -->
+                <div class="project-item-card ongoing-card" data-category="ongoing">
+                    <div class="card-img-container">
+                        <div class="status-badge"><span class="pulse-dot"></span> W.I.P</div>
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80"
+                            alt="SaaS Design System" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Design Systems</span>
+                        <h3>SaaS Design System</h3>
+                        <p>Drafting an enterprise-grade utility framework optimizing responsive UI tokens.</p>
+                        <div class="project-tech-stack">
+                            <span>Figma</span><span>SCSS</span><span>Storybook</span>
+                        </div>
+                        <a href="#" class="card-btn">Track Progress →</a>
+                    </div>
+                </div>
+    
+                <!-- 5. Completed Security -->
+                <div class="project-item-card" data-category="security">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80"
+                            alt="Cybersecurity Sandbox" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Network Audit</span>
+                        <h3>Cybersecurity Sandbox</h3>
+                        <p>An interactive educational training environment simulating local network diagnostics.</p>
+                        <div class="project-tech-stack">
+                            <span>Python</span><span>PowerShell</span><span>TCP/IP</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 6. Ongoing Mobile/AR (W.I.P) -->
+                <div class="project-item-card ongoing-card" data-category="ongoing">
+                    <div class="card-img-container">
+                        <div class="status-badge"><span class="pulse-dot"></span> W.I.P</div>
+                        <img src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=600&q=80"
+                            alt="AR Navigation Overlay" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">AR & Viewport</span>
+                        <h3>AR Navigation Overlay</h3>
+                        <p>Testing real-time viewport canvas rendering algorithms over geolocation paths.</p>
+                        <div class="project-tech-stack">
+                            <span>Three.js</span><span>Geolocation API</span><span>WebGL</span>
+                        </div>
+                        <a href="#" class="card-btn">Track Progress →</a>
+                    </div>
+                </div>
+    
+                <!-- 7. Completed Web -->
+                <div class="project-item-card" data-category="web">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80"
+                            alt="Social Media App" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Privacy Platforms</span>
+                        <h3>Social Media App</h3>
+                        <p>A minimalist social platform focusing on privacy-first interactions and secure messaging.</p>
+                        <div class="project-tech-stack">
+                            <span>WebSockets</span><span>Express</span><span>MongoDB</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 8. Ongoing AI/Data (W.I.P) -->
+                <div class="project-item-card ongoing-card" data-category="ongoing">
+                    <div class="card-img-container">
+                        <div class="status-badge"><span class="pulse-dot"></span> W.I.P</div>
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=600&q=80"
+                            alt="AI Content Curator" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Machine Learning</span>
+                        <h3>AI Content Curator</h3>
+                        <p>Developing machine learning models to cluster and summarize cross-platform dev newsletters.</p>
+                        <div class="project-tech-stack">
+                            <span>Python</span><span>OpenAI API</span><span>FastAPI</span>
+                        </div>
+                        <a href="#" class="card-btn">Track Progress →</a>
+                    </div>
+                </div>
+    
+                <!-- 9. Completed Mobile/App -->
+                <div class="project-item-card" data-category="ui">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1510519138161-5364d8cd5bb9?auto=format&fit=crop&w=600&q=80"
+                            alt="Fitness Tracker Mobile" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Mobile UI</span>
+                        <h3>Fitness Tracker Mobile</h3>
+                        <p>Cross-platform application built to monitor daily wellness habits and biometric routines.</p>
+                        <div class="project-tech-stack">
+                            <span>Flutter</span><span>Dart</span><span>SQLite</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 10. Ongoing Finance (W.I.P) -->
+                <div class="project-item-card ongoing-card" data-category="ongoing">
+                    <div class="card-img-container">
+                        <div class="status-badge"><span class="pulse-dot"></span> W.I.P</div>
+                        <img src="https://images.unsplash.com/photo-1642543492481-44e81e3914a7?auto=format&fit=crop&w=600&q=80"
+                            alt="Crypto Portfolio Ticker" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">FinTech Real-Time</span>
+                        <h3>Crypto Portfolio Ticker</h3>
+                        <p>Configuring ultra-low latency websocket arrays for accurate live pricing pipelines.</p>
+                        <div class="project-tech-stack">
+                            <span>WebSockets</span><span>Vue.js</span><span>ChartEngine</span>
+                        </div>
+                        <a href="#" class="card-btn">Track Progress →</a>
+                    </div>
+                </div>
+    
+                <!-- 11. Completed IoT -->
+                <div class="project-item-card" data-category="security">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?auto=format&fit=crop&w=600&q=80"
+                            alt="Smart Home UI" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">IoT Hardware Hub</span>
+                        <h3>Smart Home UI</h3>
+                        <p>A centralized desktop hub interface controlling IoT accessories via drag-and-drop triggers.</p>
+                        <div class="project-tech-stack">
+                            <span>MQTT</span><span>Electron</span><span>Node.js</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 12. Ongoing Portfolio V2 (W.I.P) -->
+                <div class="project-item-card ongoing-card" data-category="ongoing">
+                    <div class="card-img-container">
+                        <div class="status-badge"><span class="pulse-dot"></span> W.I.P</div>
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80"
+                            alt="Developer Portfolio V2" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Frontend Architecture</span>
+                        <h3>Developer Portfolio V2</h3>
+                        <p>Iterating on advanced fluid layout architecture frameworks for ultra-fast load times.</p>
+                        <div class="project-tech-stack">
+                            <span>HTML5</span><span>CSS Variables</span><span>Vanilla JS</span>
+                        </div>
+                        <a href="#" class="card-btn">Track Progress →</a>
+                    </div>
+                </div>
+    
+                <!-- 13. Completed Utility -->
+                <div class="project-item-card" data-category="web">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80"
+                            alt="Recipe Finder Engine" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Search Algorithm</span>
+                        <h3>Recipe Finder Engine</h3>
+                        <p>Ingredient-based search platform pulling customized dishes and nutrition values.</p>
+                        <div class="project-tech-stack">
+                            <span>REST APIs</span><span>JavaScript</span><span>Flexbox</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 14. Ongoing Automation (W.I.P) -->
+                <div class="project-item-card ongoing-card" data-category="ongoing">
+                    <div class="card-img-container">
+                        <div class="status-badge"><span class="pulse-dot"></span> W.I.P</div>
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80"
+                            alt="Task Automation Hub" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Systems & Cron</span>
+                        <h3>Task Automation Hub</h3>
+                        <p>Wiring simple custom script triggers to headless cron instances for remote server maintenance.
+                        </p>
+                        <div class="project-tech-stack">
+                            <span>Bash</span><span>Node.js</span><span>Linux Cron</span>
+                        </div>
+                        <a href="#" class="card-btn">Track Progress →</a>
+                    </div>
+                </div>
+    
+                <!-- 15. Completed Enterprise -->
+                <div class="project-item-card" data-category="web">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80"
+                            alt="Corporate Cloud Portal" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Enterprise SaaS</span>
+                        <h3>Corporate Cloud Portal</h3>
+                        <p>Scalable dashboard infrastructure handling enterprise user role permissions and logs.</p>
+                        <div class="project-tech-stack">
+                            <span>TypeScript</span><span>PostgreSQL</span><span>Docker</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 16. Completed UI System -->
+                <div class="project-item-card" data-category="ui">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=600&q=80"
+                            alt="Glassmorphism UI Kit" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Component Library</span>
+                        <h3>Glassmorphism UI Kit</h3>
+                        <p>A modular library of backdrop-filtered components optimized for modern web apps.</p>
+                        <div class="project-tech-stack">
+                            <span>CSS Variables</span><span>SVG</span><span>UI Elements</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 17. Completed Security Audit Tool -->
+                <div class="project-item-card" data-category="security">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=600&q=80"
+                            alt="Netstat Connection Analyzer" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Security Diagnostic</span>
+                        <h3>Netstat Connection Analyzer</h3>
+                        <p>A lightweight utility script visualizing active network connections and mapping PIDs.</p>
+                        <div class="project-tech-stack">
+                            <span>PowerShell</span><span>Node.js</span><span>CLI Tooling</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 18. Completed Travel App -->
+                <div class="project-item-card" data-category="web">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=600&q=80"
+                            alt="Nature Expedition Planner" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Interactive Maps</span>
+                        <h3>Nature Expedition Planner</h3>
+                        <p>A custom itinerary manager optimized for multi-day nature treks and route tracking.</p>
+                        <div class="project-tech-stack">
+                            <span>Mapbox GL</span><span>JavaScript</span><span>CSS Grid</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 19. Completed Academic Portal -->
+                <div class="project-item-card" data-category="ui">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80"
+                            alt="Academic Record Matrix" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Database UI</span>
+                        <h3>Academic Record Matrix</h3>
+                        <p>Structured metadata rendering engine for managing student performance profiles.</p>
+                        <div class="project-tech-stack">
+                            <span>HTML Tables</span><span>Vanilla JS</span><span>CSS</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+                <!-- 20. Completed API Gateway -->
+                <div class="project-item-card" data-category="security">
+                    <div class="card-img-container">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80"
+                            alt="Secure API Gateway" loading="lazy">
+                    </div>
+                    <div class="card-content">
+                        <span class="project-tag">Backend Security</span>
+                        <h3>Secure API Gateway</h3>
+                        <p>Authentication proxy handling token verification and rate-limiting payloads safely.</p>
+                        <div class="project-tech-stack">
+                            <span>Express</span><span>JWT</span><span>Redis</span>
+                        </div>
+                        <a href="#" class="card-btn">Explore Case Study →</a>
+                    </div>
+                </div>
+    
+            </div>
+        </section>
+
+
+
+        <!-- ==========================================================================
+                 PROJECT DETAILS MODAL POPUP (Placed below the footer in code)
+                 ========================================================================== -->
+        <!-- ==========================================================================
+                 ENHANCED PROJECT DETAILS MODAL POPUP (Larger with Image & Rich Details)
+                 ========================================================================== -->
+        <div class="project-modal-overlay" id="projectModalOverlay">
+            <div class="project-modal-card">
+                <button class="modal-close-btn" id="modalCloseBtn">&times;</button>
+        
+                <!-- Modal Visual Image Showcase Banner -->
+                <div class="modal-img-container">
+                    <img id="modalProjectImg" src="" alt="Project Visual Preview" loading="lazy">
+                </div>
+        
+                <!-- Scrollable Content Section for Rich Case Study Details -->
+                <div class="modal-content-scrollable">
+                    <div class="modal-header">
+                        <span id="modalProjectTag" class="project-tag">Project Category</span>
+                        <h2 id="modalProjectTitle">Project Title</h2>
+                    </div>
+        
+                    <div class="modal-body-content">
+                        <div class="detail-block">
+                            <h3>Executive Summary & Architecture</h3>
+                            <p id="modalProjectDesc">Detailed overview of the engineering architecture and implementation goals.
+                            </p>
+                        </div>
+        
+                        <div class="detail-block">
+                            <h3>Core Engineering Challenges & Solutions</h3>
+                            <p id="modalProjectChallenges">Engineered resilient data synchronization pipelines, optimized
+                                high-frequency event listeners, and minimized DOM reflow loops to achieve peak rendering
+                                performance across all target viewports.</p>
+                        </div>
+        
+                        <div class="detail-block">
+                            <h3>Tech Architecture Stack</h3>
+                            <div id="modalTechStack" class="project-tech-stack">
+                                <!-- Populated dynamically via JS -->
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="modal-action-row">
+                        <button type="button" class="form-control-btn" id="modalActionBtn">Close Overview</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==========================================================================
+             End of Project Details Modal Popup
+             ========================================================================== -->
+    
+    
+        <!-- ==========================================================================
+             GLOBAL FOOTER
+             ========================================================================== -->
+        <footer class="global-footer">
+            <div class="footer-wave-accent"></div>
+            <div class="footer-container">
+                <div class="footer-grid">
+                    <div class="footer-col brand-col">
+                        <a href="home.html" class="footer-logo">My<span>Logo</span></a>
+                        <p class="brand-bio">Designing beautiful interactive experiences and building robust engineering
+                            architectures.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Explore</h3>
+                        <ul class="footer-links">
+                            <li><a href="home.html">Home Space</a></li>
+                            <li><a href="about.html">Our Story</a></li>
+                            <li><a href="projects.html">Case Studies</a></li>
+                            <li><a href="contacts.html">Get In Touch</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h3>Current Lab Status</h3>
+                        <div class="status-indicator-box">
+                            <span class="status-pulse-ring"></span>
+                            <p>Available for select freelance contracts & corporate engineering roles.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-baseline">
+                    <p>&copy; 2026 My Jobs. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+
+        <!-- ==========================================================================
+             END OF PAGE CONTENT
+             ========================================================================== -->
+        <!-- JavaScript Script Link -->
+        <script src="../scripts/projects.js"></script>
+    
+    </body>
+
+
+</html>
